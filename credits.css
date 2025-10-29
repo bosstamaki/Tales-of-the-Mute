@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, #141414, #0f0f0f);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  overflow: hidden;
+  user-select: none;
+}
+
+#creditsTitle {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  z-index: 20;
+  user-select: none;
+}
+
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  overflow: visible;
+  top: 7vh;
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 20px;
+  transition: transform 2.5s ease, opacity 2.5s ease, box-shadow 1.5s ease;
+  opacity: 0;
+  transform: scale(0.8) translateX(0);
+  z-index: 1;
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-top: 10px;
+}
+
+.card h2 {
+  margin: 15px 0 5px;
+  font-size: 1.4em;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: #ccc;
+}
+
+.card.active {
+  transform: scale(1.1) translateX(0);
+  opacity: 1;
+  z-index: 10;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.card.left {
+  transform: scale(0.9) translateX(-320px);
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.card.right {
+  transform: scale(0.9) translateX(320px);
+  opacity: 0.7;
+  z-index: 5;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: 0.3s;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.15);
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+  z-index: 999;
+}
+
+.arrow:hover {
+  background: rgba(241, 196, 15, 0.5);
+}
+
+#leftArrow {
+  left: -60px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+#rightArrow {
+  right: -60px;
+}
+
+#creditsButton {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #f9a53e, #d97800);
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  line-height: 65px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(249, 165, 62, 0.5), inset 0 0 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  z-index: 50;
+  text-decoration: none;
+}
+
+#creditsButton:hover {
+  transform: scale(1.1) rotate(8deg);
+  box-shadow: 0 0 18px rgba(249, 165, 62, 0.8),
+    inset 0 0 10px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(145deg, #ffb84d, #e28a00);
+}
+
+#creditsButton span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+#creditsButton:hover span {
+  transform: rotate(15deg);
+}
